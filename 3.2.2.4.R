@@ -2,10 +2,7 @@
 install.packages("urca")
 install.packages("vars")
 install.packages("tsDyn")
-library(tidyverse) # loads the tidyverse package
-library(dplyr)
 library(readxl)
-library(stats)
 library(tseries)
 library(forecast)
 library(magrittr)
@@ -16,7 +13,7 @@ library(tsDyn)
 DF <- as.data.frame(read_excel(path = "Data-VEC Model.xlsx",sheet="Data"))
 
 data = as.data.frame(cbind(DF$`ln( return )`, DF$`Infl Diff`, DF$`IR Diff`, DF$`CP Diff`))
-#data = as.data.frame(cbind(DF$`ln( return )`, DF$`Infl Diff`, DF$`IR Diff`))
+
 
 #1. test for stationarity
 colnames(data)[1]<-"Rate"
@@ -44,7 +41,7 @@ adf.test(data$Current_Payment)
 adf.test(dif_Current_Payment)
 #confirmed stationarity of order 1
 
-#2. estimate the lag for  VECM Model 
+#2. estimate the lag for VECM Model 
 
 VARselect(data,lag.max=10, type="none")$selection
 
@@ -65,8 +62,6 @@ summary(jotest2a)
 
 model = VECM(data,4,r = 1, include = "const",estim = "ML", LRinclude = "none") 
 summary(model)
-
-#Using the 
 
 #optional for prediction
 #newdata = tail(data,5)
