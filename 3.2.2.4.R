@@ -1,7 +1,7 @@
 
 # The BEER - BEHAVIOURAL EQUILIBRIUM EXCHANGE RATE model was developed by Clark and MacDonald (1999) and estimates the fair value of currencies according to short, medium and long-run determinants. 
 # An important concept is that there is no established theory for the choice of economic variables; hence, the choice of variables is based on economic intuition and data simplicity and availability. 
-# In this exercise we chose the inflation differential, interest rate diferential and current payment differential to be regression variables. 
+# In this exercise we chose the inflation differential, interest rate diferential and current payment differential to be regression variables for the ln(return) fo the AUD?USD exchange rate.  
 
 install.packages("urca")
 install.packages("vars")
@@ -60,7 +60,8 @@ jotest2a=ca.jo(data, type="trace", K=4, ecdet="none", spec="longrun")
 summary(jotest2a)
 
 #COMMENT : Both tests are showing there are cointegration relations as both tests rejects the null hypothesis of r = 0 at 5%
-#r or number of co-integrations is at most = 1
+#r or number of co-integrations is at most = 1 The Johnson cointegration test results eliminates the use of VAR model. 
+#So we move on to use VECM in order to determine long run relationship of equilibrium real exchange rate.
 
 #VECM model implementation
 
