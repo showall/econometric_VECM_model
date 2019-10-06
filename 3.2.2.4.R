@@ -1,4 +1,8 @@
 
+# The BEER - BEHAVIOURAL EQUILIBRIUM EXCHANGE RATE model was developed by Clark and MacDonald (1999) and estimates the fair value of currencies according to short, medium and long-run determinants. 
+# An important concept is that there is no established theory for the choice of economic variables; hence, the choice of variables is based on economic intuition and data simplicity and availability. 
+# In this exercise we chose the inflation differential, interest rate diferential and current payment differential to be regression variables. 
+
 install.packages("urca")
 install.packages("vars")
 install.packages("tsDyn")
